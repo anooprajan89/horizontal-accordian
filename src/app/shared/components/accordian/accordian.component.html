@@ -1,0 +1,15 @@
+<div class="accordian-container">
+  <div *ngFor="let item of accordianInput;" class="accordian-item" [ngClass]="item.isExpanded ? 'expanded' : ''">
+    <div class="accordian-header">
+      <div class="toggle-btn" (click)="toggleAccordian(item)">
+        <span *ngIf="!item.isExpanded" class="expand">+</span>
+        <span *ngIf="item.isExpanded" class="collapse">-</span>
+      </div>
+      <div class="accordian-title">{{item.title}}</div>
+      <div class="content-cards-count">{{item.count}}</div>
+    </div>
+    <div class="accordian-content">
+      <div class="card" *ngFor="let widget of item.widget;">{{widget.title}}</div>
+    </div>
+  </div>
+</div>
